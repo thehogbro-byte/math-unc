@@ -1,0 +1,133 @@
+--// Variables
+local Players = game:GetService("Players")
+local RunService = game:GetService("RunService")
+local localPlayer = Players.LocalPlayer
+local camera = workspace.CurrentCamera
+local cache = {}
+
+local bones = {
+    {"Head", "UpperTorso"},
+    {"UpperTorso", "RightUpperArm"},
+    {"RightUpperArm", "RightLowerArm"},
+    {"RightLowerArm", "RightHand"},
+    {"UpperTorso", "LeftUpperArm"},
+    {"LeftUpperArm", "LeftLowerArm"},
+    {"LeftLowerArm", "LeftHand"},
+    {"UpperTorso", "LowerTorso"},
+    {"LowerTorso", "LeftUpperLeg"},
+    {"LeftUpperLeg", "LeftLowerLeg"},
+    {"LeftLowerLeg", "LeftFoot"},
+    {"LowerTorso", "RightUpperLeg"},
+    {"RightUpperLeg", "RightLowerLeg"},
+    {"RightLowerLeg", "RightFoot"}
+}
+
+--// Settings
+local ESP_SETTINGS = {
+    BoxOutlineColor = Color3.new(0, 0, 0),
+    BoxColor = Color3.new(1, 1, 1),
+    NameColor = Color3.new(1, 1, 1),
+    HealthOutlineColor = Color3.new(0, 0, 0),
+    HealthHighColor = Color3.new(0, 1, 0),
+    HealthLowColor = Color3.new(1, 0, 0),
+    CharSize = Vector2.new(4, 6),
+    Teamcheck = false,
+    WallCheck = false,
+    Enabled = false,
+    ShowBox = false,
+    BoxType = "2D",
+    ShowName = false,
+    ShowHealth = false,
+    ShowDistance = false,
+    ShowSkeletons = false,
+    ShowTracer = false,
+    TracerColor = Color3.new(1, 1, 1), 
+    TracerThickness = 2,
+    SkeletonsColor = Color3.new(1, 1, 1),
+    TracerPosition = "Bottom",
+    TeamColorESP = false -- New setting (Disabled by default)
+}
+
+local function create(class, properties)
+    local drawing = Drawing.new(class)
+    for property, value in pairs(properties) do
+        drawing[property] = value
+    end
+    return drawing
+end
+
+local function createEsp(player)
+    local esp = {
+        box = create("Square", {
+            Color = ESP_SETTINGS.BoxColor,
+            Thickness = 1,
+            Filled = false
+        }),
+        name = create("Text", {
+            Color = ESP_SETTINGS.NameColor,
+            Outline = true,
+            Center = true,
+            Size = 13
+        }),
+    }
+
+    cache[player] = esp
+end
+
+local function removeEsp(player)
+    local esp = cache[player]
+    if not esp then return end
+
+    for _, drawing in pairs(esp) do
+        drawing:Remove()
+    end
+
+    cache[player] = nil
+end
+
+local function updateEsp()
+    for player, esp in pairs(cache) do
+        local character, team = player.Character, player.Team
+        if character and (not ESP_SETTINGS.Teamcheck or (team and team ~= localPlayer.Team)) then
+            local rootPart = character:FindFirstChild("HumanoidRootPart")
+            local onScreen = rootPart and camera:WorldToViewportPoint(rootPart.Position).Z > 0
+
+            if rootPart and onScreen and ESP_SETTINGS.Enabled then
+                local teamColor = ESP_SETTINGS.TeamColorESP and player.TeamColor.Color or ESP_SETTINGS.BoxColor
+
+                if ESP_SETTINGS.ShowName then
+                    esp.name.Visible = true
+                    esp.name.Text = player.Name
+                    esp.name.Color = ESP_SETTINGS.TeamColorESP and teamColor or ESP_SETTINGS.NameColor
+                else
+                    esp.name.Visible = false
+                end
+
+                if ESP_SETTINGS.ShowBox then
+                    esp.box.Visible = true
+                    esp.box.Color = teamColor
+                else
+                    esp.box.Visible = false
+                end
+            else
+                esp.name.Visible = false
+                esp.box.Visible = false
+            end
+        else
+            esp.name.Visible = false
+            esp.box.Visible = false
+        end
+    end
+end
+
+for _, player in ipairs(Players:GetPlayers()) do
+    if player ~= localPlayer then
+        createEsp(player)
+    end
+end
+
+Players.PlayerAdded:Connect(createEsp)
+Players.PlayerRemoving:Connect(removeEsp)
+RunService.RenderStepped:Connect(updateEsp)
+
+return ESP_SETTINGS
