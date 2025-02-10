@@ -184,17 +184,17 @@ function initLibrary()
 
     _G.GuiVisible = true -- Default state (true = visible, false = hidden)
 
-function ToggleGui()
-    _G.GuiVisible = not _G.GuiVisible -- Toggle between true and false
-    gui.Enabled = _G.GuiVisible
-end
-
--- Example keybind toggle (Press "P" to toggle GUI visibility)
-game:GetService("UserInputService").InputBegan:Connect(function(input, gameProcessed)
-    if not gameProcessed and input.KeyCode == Enum.KeyCode.P then
-        ToggleGui()
+    function _G.ToggleGui()
+        _G.GuiVisible = not _G.GuiVisible -- Toggle between true and false
+        gui.Enabled = _G.GuiVisible
     end
-end)
+    
+    -- Example keybind toggle (Press "P" to toggle GUI visibility)
+    game:GetService("UserInputService").InputBegan:Connect(function(input, gameProcessed)
+        if not gameProcessed and input.KeyCode == Enum.KeyCode.P then
+            _G.ToggleGui()
+        end
+    end)    
 
     inputService.InputBegan:Connect(function(input)
         if input.KeyCode == library.keybind then
