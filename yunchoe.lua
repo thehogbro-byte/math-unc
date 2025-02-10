@@ -1,8 +1,4 @@
---[[
-Yun Founders: flash#9999, loris#9547, worldwide#0001 , Saul Goodman#2345
-Yun Devs: zomb#7741, nives#0001, loot#1337
-Special Thanks To: Qw#1549
---]]
+
 function initLibrary()
     local folderName = "epic config folder"
 
@@ -89,31 +85,34 @@ function initLibrary()
 
     function utility.drag(obj, dragSpeed)
         local start, objPosition, dragging
-
-
+    
+        local function updatePosition(input)
+            if dragging then
+                local delta = input.Position - start
+                utility.tween(obj, {dragSpeed}, {Position = UDim2.new(objPosition.X.Scale, objPosition.X.Offset + delta.X, objPosition.Y.Scale, objPosition.Y.Offset + delta.Y)})
+            end
+        end
+    
         obj.InputBegan:Connect(function(input)
-            if input.UserInputType == Enum.UserInputType.MouseButton1 then
+            if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
                 dragging = true
                 start = input.Position
                 objPosition = obj.Position
             end
         end)
-
-
-        obj.InputEnded:Connect(function(input )
-            if input.UserInputType == Enum.UserInputType.MouseButton1 then 
+    
+        obj.InputChanged:Connect(function(input)
+            if input.UserInputType == Enum.UserInputType.MouseMovement or input.UserInputType == Enum.UserInputType.Touch then
+                updatePosition(input)
+            end
+        end)
+    
+        obj.InputEnded:Connect(function(input)
+            if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
                 dragging = false
             end
         end)
-
-
-        inputService.InputChanged:Connect(function(input)
-            if input.UserInputType == Enum.UserInputType.MouseMovement and dragging then   
-                utility.tween(obj, {dragSpeed}, {Position = UDim2.new(objPosition.X.Scale, objPosition.X.Offset + (input.Position - start).X, objPosition.Y.Scale, objPosition.Y.Offset + (input.Position - start).Y)})
-            end
-        end)
-    end
-
+    end    
 
     function utility.get_center(sizeX, sizeY)
         return UDim2.new(0.5, -(sizeX / 2), 0.5, -(sizeY / 2))
@@ -3642,3 +3641,4 @@ function initLibrary()
 
     return library
 end
+
