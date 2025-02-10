@@ -205,8 +205,8 @@ function library.new(library_title, cfg_location)
         Font = Enum.Font.Ubuntu,
         Text = library_title,
         TextColor3 = Color3.fromRGB(255, 255, 255),
-        TextSize = math.floor( 16,
- * (ImageLabel.Size.Y.Offset / 500))        TextXAlignment = Enum.TextXAlignment.Left,
+TextSize = 16, * (ImageLabel.Size.Y.Offset / 500)
+        TextXAlignment = Enum.TextXAlignment.Left,
         RichText = true,
     }, ImageLabel)
 
@@ -347,8 +347,8 @@ end
                 Font = Enum.Font.Ubuntu,
                 Text = section_name,
                 TextColor3 = Color3.fromRGB(100, 100, 100),
-                TextSize = math.floor( 15,
- * (ImageLabel.Size.Y.Offset / 500))            }, TabSections)
+TextSize = 15, * (ImageLabel.Size.Y.Offset / 500)
+            }, TabSections)
 
             for _,SectionButtons in pairs (TabSections:GetChildren()) do
                 if SectionButtons:IsA("UIListLayout") then continue end
@@ -478,8 +478,8 @@ end
                     Font = Enum.Font.Ubuntu,
                     Text = sector_name,
                     TextColor3 = Color3.fromRGB(255, 255, 255),
-                    TextSize = math.floor( 14,
- * (ImageLabel.Size.Y.Offset / 500))                }, Border)
+TextSize = 14, * (ImageLabel.Size.Y.Offset / 500)
+                }, Border)
 
                 function sector.create_line(thickness)
                     thickness = thickness or 3
@@ -564,8 +564,8 @@ end
                             Font = Enum.Font.Ubuntu,
                             Text = text,
                             TextColor3 = Color3.fromRGB(150, 150, 150),
-                            TextSize = math.floor( 14,
- * (ImageLabel.Size.Y.Offset / 500))                            TextXAlignment = Enum.TextXAlignment.Left,
+TextSize = 14, * (ImageLabel.Size.Y.Offset / 500)
+                            TextXAlignment = Enum.TextXAlignment.Left,
                         }, ToggleButton)
 
                         local mouse_in = false
@@ -622,8 +622,8 @@ end
                                 Font = Enum.Font.Ubuntu,
                                 Text = "[ NONE ]",
                                 TextColor3 = Color3.fromRGB(150, 150, 150),
-                                TextSize = math.floor( 14,
- * (ImageLabel.Size.Y.Offset / 500))                                TextXAlignment = Enum.TextXAlignment.Right,
+TextSize = 14, * (ImageLabel.Size.Y.Offset / 500)
+                                TextXAlignment = Enum.TextXAlignment.Right,
                             }, ToggleButton)
 
                             local KeybindFrame = library:create("Frame", {
@@ -674,8 +674,8 @@ end
                                 Font = Enum.Font.Ubuntu,
                                 Text = "Always",
                                 TextColor3 = Color3.fromRGB(84, 101, 255),
-                                TextSize = math.floor( 14,
- * (ImageLabel.Size.Y.Offset / 500))                                ZIndex = 2,
+TextSize = 14, * (ImageLabel.Size.Y.Offset / 500)
+                                ZIndex = 2,
                             }, KeybindFrame)
 
                             local Hold = library:create("TextButton", {
@@ -685,8 +685,8 @@ end
                                 Font = Enum.Font.Ubuntu,
                                 Text = "Hold",
                                 TextColor3 = Color3.fromRGB(150, 150, 150),
-                                TextSize = math.floor( 14,
- * (ImageLabel.Size.Y.Offset / 500))                                ZIndex = 2,
+TextSize = 14, * (ImageLabel.Size.Y.Offset / 500)
+                                ZIndex = 2,
                             }, KeybindFrame)
 
                             local Toggle = library:create("TextButton", {
@@ -696,8 +696,8 @@ end
                                 Font = Enum.Font.Ubuntu,
                                 Text = "Toggle",
                                 TextColor3 = Color3.fromRGB(150, 150, 150),
-                                TextSize = math.floor( 14,
- * (ImageLabel.Size.Y.Offset / 500))                                ZIndex = 2,
+TextSize = 14, * (ImageLabel.Size.Y.Offset / 500)
+                                ZIndex = 2,
                             }, KeybindFrame)
                             for _,TypeButton in next, KeybindFrame:GetChildren() do
                                 if TypeButton:IsA("UIListLayout") then continue end
@@ -1131,8 +1131,8 @@ end
                             Font = Enum.Font.Ubuntu,
                             Text = value.Dropdown,
                             TextColor3 = Color3.fromRGB(150, 150, 150),
-                            TextSize = math.floor( 14,
- * (ImageLabel.Size.Y.Offset / 500))                            TextXAlignment = Enum.TextXAlignment.Left,
+TextSize = 14, * (ImageLabel.Size.Y.Offset / 500)
+                            TextXAlignment = Enum.TextXAlignment.Left,
                         }, DropdownButton)
 
                         local ImageLabel = library:create("ImageLabel", {
@@ -1150,8 +1150,8 @@ end
                             Font = Enum.Font.Ubuntu,
                             Text = text,
                             TextColor3 = Color3.fromRGB(150, 150, 150),
-                            TextSize = math.floor( 14,
- * (ImageLabel.Size.Y.Offset / 500))                            TextXAlignment = Enum.TextXAlignment.Left,
+TextSize = 14, * (ImageLabel.Size.Y.Offset / 500)
+                            TextXAlignment = Enum.TextXAlignment.Left,
                         }, Dropdown)
 
                         local DropdownScroll = library:create("ScrollingFrame", {
@@ -1257,8 +1257,8 @@ end
                                 Font = Enum.Font.Ubuntu,
                                 Text = v,
                                 TextColor3 = Color3.fromRGB(150, 150, 150),
-                                TextSize = math.floor( 14,
- * (ImageLabel.Size.Y.Offset / 500))                                TextXAlignment = Enum.TextXAlignment.Left,
+TextSize = 14, * (ImageLabel.Size.Y.Offset / 500)
+                                TextXAlignment = Enum.TextXAlignment.Left,
                                 ZIndex = 2,
                             }, Button)
 
@@ -1337,8 +1337,8 @@ end
                             Font = Enum.Font.Ubuntu,
                             Text = value.Dropdown,
                             TextColor3 = Color3.fromRGB(150, 150, 150),
-                            TextSize = math.floor( 14,
- * (ImageLabel.Size.Y.Offset / 500))                            TextXAlignment = Enum.TextXAlignment.Left,
+TextSize = 14, * (ImageLabel.Size.Y.Offset / 500)
+                            TextXAlignment = Enum.TextXAlignment.Left,
                         }, DropdownButton)
 
                         local ImageLabel = library:create("ImageLabel", {
@@ -1356,8 +1356,8 @@ end
                             Font = Enum.Font.Ubuntu,
                             Text = text,
                             TextColor3 = Color3.fromRGB(150, 150, 150),
-                            TextSize = math.floor( 14,
- * (ImageLabel.Size.Y.Offset / 500))                            TextXAlignment = Enum.TextXAlignment.Left,
+TextSize = 14, * (ImageLabel.Size.Y.Offset / 500)
+                            TextXAlignment = Enum.TextXAlignment.Left,
                         }, Dropdown)
 
                         local DropdownScroll = library:create("ScrollingFrame", {
@@ -1506,8 +1506,8 @@ end
                                 Font = Enum.Font.Ubuntu,
                                 Text = v,
                                 TextColor3 = Color3.fromRGB(150, 150, 150),
-                                TextSize = math.floor( 14,
- * (ImageLabel.Size.Y.Offset / 500))                                TextXAlignment = Enum.TextXAlignment.Left,
+TextSize = 14, * (ImageLabel.Size.Y.Offset / 500)
+                                TextXAlignment = Enum.TextXAlignment.Left,
                                 ZIndex = 2,
                             }, Button)
 
@@ -1575,8 +1575,8 @@ end
                             Font = Enum.Font.Ubuntu,
                             Text = text,
                             TextColor3 = Color3.fromRGB(150, 150, 150),
-                            TextSize = math.floor( 14,
- * (ImageLabel.Size.Y.Offset / 500))                        }, ButtonFrame)
+TextSize = 14, * (ImageLabel.Size.Y.Offset / 500)
+                        }, ButtonFrame)
 
                         Button.MouseEnter:Connect(function()
                             library:tween(Button, TweenInfo.new(0.2, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {TextColor3 = Color3.fromRGB(255, 255, 255)})
@@ -1623,8 +1623,8 @@ end
                             Font = Enum.Font.Ubuntu,
                             Text = text,
                             TextColor3 = Color3.fromRGB(150, 150, 150),
-                            TextSize = math.floor( 14,
- * (ImageLabel.Size.Y.Offset / 500))                            PlaceholderText = text,
+TextSize = 14, * (ImageLabel.Size.Y.Offset / 500)
+                            PlaceholderText = text,
                             ClearTextOnFocus = false,
                         }, ButtonFrame)
 
@@ -1729,8 +1729,8 @@ end
                                 Font = Enum.Font.SourceSans,
                                 Text = "",
                                 TextColor3 = Color3.fromRGB(0, 0, 0),
-                                TextSize = math.floor( 14,
- * (ImageLabel.Size.Y.Offset / 500))                            }, ScrollFrame)
+TextSize = 14, * (ImageLabel.Size.Y.Offset / 500)
+                            }, ScrollFrame)
 
                             local ButtonText = library:create("TextLabel", {
                                 Name = "ButtonText",
@@ -1741,8 +1741,8 @@ end
                                 Font = Enum.Font.Ubuntu,
                                 Text = v,
                                 TextColor3 = Color3.fromRGB(150, 150, 150),
-                                TextSize = math.floor( 14,
- * (ImageLabel.Size.Y.Offset / 500))                                TextXAlignment = Enum.TextXAlignment.Left,
+TextSize = 14, * (ImageLabel.Size.Y.Offset / 500)
+                                TextXAlignment = Enum.TextXAlignment.Left,
                             }, Button)
 
                             local Decoration = library:create("Frame", {
@@ -1807,8 +1807,8 @@ end
                                 Font = Enum.Font.SourceSans,
                                 Text = "",
                                 TextColor3 = Color3.fromRGB(0, 0, 0),
-                                TextSize = math.floor( 14,
- * (ImageLabel.Size.Y.Offset / 500))                            }, ScrollFrame)
+TextSize = 14, * (ImageLabel.Size.Y.Offset / 500)
+                            }, ScrollFrame)
 
                             local ButtonText = library:create("TextLabel", {
                                 Name = "ButtonText",
@@ -1819,8 +1819,8 @@ end
                                 Font = Enum.Font.Ubuntu,
                                 Text = v,
                                 TextColor3 = Color3.fromRGB(150, 150, 150),
-                                TextSize = math.floor( 14,
- * (ImageLabel.Size.Y.Offset / 500))                                TextXAlignment = Enum.TextXAlignment.Left,
+TextSize = 14, * (ImageLabel.Size.Y.Offset / 500)
+                                TextXAlignment = Enum.TextXAlignment.Left,
                             }, Button)
 
                             local Decoration = library:create("Frame", {
@@ -1919,8 +1919,8 @@ end
                             Font = Enum.Font.Ubuntu,
                             Text = text,
                             TextColor3 = Color3.fromRGB(150, 150, 150),
-                            TextSize = math.floor( 14,
- * (ImageLabel.Size.Y.Offset / 500))                            TextXAlignment = Enum.TextXAlignment.Left,
+TextSize = 14, * (ImageLabel.Size.Y.Offset / 500)
+                            TextXAlignment = Enum.TextXAlignment.Left,
                         }, Slider)
 
                         local SliderButton = library:create("TextButton", {
@@ -1954,8 +1954,8 @@ end
                             Font = Enum.Font.Ubuntu,
                             Text = value.Slider,
                             TextColor3 = Color3.fromRGB(150, 150, 150),
-                            TextSize = math.floor( 14,
- * (ImageLabel.Size.Y.Offset / 500))                            TextXAlignment = Enum.TextXAlignment.Right,
+TextSize = 14, * (ImageLabel.Size.Y.Offset / 500)
+                            TextXAlignment = Enum.TextXAlignment.Right,
                         }, Slider)
 
                         local is_sliding = false
