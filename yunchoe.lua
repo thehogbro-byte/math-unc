@@ -180,21 +180,7 @@ function initLibrary()
     end
 
 
-    local gui = utility.create("ScreenGui")
-
-    _G.GuiVisible = true -- Default state (true = visible, false = hidden)
-
-    function _G.ToggleGui()
-        _G.GuiVisible = not _G.GuiVisible -- Toggle between true and false
-        gui.Enabled = _G.GuiVisible
-    end
-    
-    -- Example keybind toggle (Press "P" to toggle GUI visibility)
-    game:GetService("UserInputService").InputBegan:Connect(function(input, gameProcessed)
-        if not gameProcessed and input.KeyCode == Enum.KeyCode.P then
-            _G.ToggleGui()
-        end
-    end)    
+    local gui = utility.create("ScreenGui") 
 
     inputService.InputBegan:Connect(function(input)
         if input.KeyCode == library.keybind then
