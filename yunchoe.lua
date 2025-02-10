@@ -112,7 +112,8 @@ function initLibrary()
                 dragging = false
             end
         end)
-    end    
+        local gui = utility.create("ScreenGui")
+    
 
     function utility.get_center(sizeX, sizeY)
         return UDim2.new(0.5, -(sizeX / 2), 0.5, -(sizeY / 2))
@@ -181,6 +182,19 @@ function initLibrary()
 
     local gui = utility.create("ScreenGui")
 
+    _G.GuiVisible = true -- Default state (true = visible, false = hidden)
+
+function ToggleGui()
+    _G.GuiVisible = not _G.GuiVisible -- Toggle between true and false
+    gui.Enabled = _G.GuiVisible
+end
+
+-- Example keybind toggle (Press "P" to toggle GUI visibility)
+game:GetService("UserInputService").InputBegan:Connect(function(input, gameProcessed)
+    if not gameProcessed and input.KeyCode == Enum.KeyCode.P then
+        ToggleGui()
+    end
+end)
 
     inputService.InputBegan:Connect(function(input)
         if input.KeyCode == library.keybind then
