@@ -147,7 +147,7 @@ function library.new(library_title, cfg_location)
     local Cursor = library:create("ImageLabel", {
         Name = "Cursor",
         BackgroundTransparency = 1,
-        Size = UDim2.new(0.5, 17, 0, 17),
+        Size = UDim2.new(0, 17, 0, 17),
         Image = "rbxassetid://7205257578",
         ZIndex = 6969,
     }, ScreenGui)
@@ -183,7 +183,7 @@ function library.new(library_title, cfg_location)
         BackgroundColor3 = Color3.fromRGB(15, 15, 15),
         BorderColor3 = Color3.fromRGB(78, 93, 234),
         Position = UDim2.new(0.5, 0, 0.5, 0),
-        Size = UDim2.new(0.5, 700, 0, 500),
+        Size = UDim2.new(0, 700, 0, 500),
         Image = "http://www.roblox.com/asset/?id=7300333488",
         AutoButtonColor = false,
         Modal = true,
@@ -205,7 +205,7 @@ function library.new(library_title, cfg_location)
         Font = Enum.Font.Ubuntu,
         Text = library_title,
         TextColor3 = Color3.fromRGB(255, 255, 255),
-TextSize = 16, * (ImageLabel.Size.Y.Offset / 500)
+        TextSize = 16,
         TextXAlignment = Enum.TextXAlignment.Left,
         RichText = true,
     }, ImageLabel)
@@ -215,7 +215,7 @@ TextSize = 16, * (ImageLabel.Size.Y.Offset / 500)
         BackgroundColor3 = Color3.fromRGB(255, 255, 255),
         BackgroundTransparency = 1,
         Position = UDim2.new(0, 12, 0, 41),
-        Size = UDim2.new(0.5, 76, 0, 447),
+        Size = UDim2.new(0, 76, 0, 447),
     }, ImageLabel)
     
     local UIListLayout = library:create("UIListLayout", {
@@ -227,7 +227,7 @@ TextSize = 16, * (ImageLabel.Size.Y.Offset / 500)
         BackgroundColor3 = Color3.fromRGB(255, 255, 255),
         BackgroundTransparency = 1,
         Position = UDim2.new(0, 102, 0, 42),
-        Size = UDim2.new(0.5, 586, 0, 446),
+        Size = UDim2.new(0, 586, 0, 446),
     }, ImageLabel)
 
 	if syn then
@@ -253,7 +253,7 @@ end
         local TabButton = library:create("TextButton", {
             BackgroundColor3 = Color3.fromRGB(255, 255, 255),
             BackgroundTransparency = 1,
-            Size = UDim2.new(0.5, 76, 0, 90),
+            Size = UDim2.new(0, 76, 0, 90),
             Text = "",
         }, TabButtons)
 
@@ -261,7 +261,7 @@ end
             AnchorPoint = Vector2.new(0.5, 0.5),
             BackgroundTransparency = 1,
             Position = UDim2.new(0.5, 0, 0.5, 0),
-            Size = UDim2.new(0.5, 32, 0, 32),
+            Size = UDim2.new(0, 32, 0, 32),
             Image = tab_image,
             ImageColor3 = Color3.fromRGB(100, 100, 100),
         }, TabButton)
@@ -347,7 +347,7 @@ end
                 Font = Enum.Font.Ubuntu,
                 Text = section_name,
                 TextColor3 = Color3.fromRGB(100, 100, 100),
-TextSize = 15, * (ImageLabel.Size.Y.Offset / 500)
+                TextSize = 15,
             }, TabSections)
 
             for _,SectionButtons in pairs (TabSections:GetChildren()) do
@@ -391,7 +391,7 @@ TextSize = 15, * (ImageLabel.Size.Y.Offset / 500)
                 Name = "Left",
                 BackgroundTransparency = 1,
                 Position = UDim2.new(0, 8, 0, 14),
-                Size = UDim2.new(0.5, 282, 0, 395),
+                Size = UDim2.new(0, 282, 0, 395),
             }, SectionFrame)
 
             local UIListLayout = library:create("UIListLayout", {
@@ -404,7 +404,7 @@ TextSize = 15, * (ImageLabel.Size.Y.Offset / 500)
                 Name = "Right",
                 BackgroundTransparency = 1,
                 Position = UDim2.new(0, 298, 0, 14),
-                Size = UDim2.new(0.5, 282, 0, 395),
+                Size = UDim2.new(0, 282, 0, 395),
             }, SectionFrame)
 
             local UIListLayout = library:create("UIListLayout", {
@@ -478,7 +478,7 @@ TextSize = 15, * (ImageLabel.Size.Y.Offset / 500)
                     Font = Enum.Font.Ubuntu,
                     Text = sector_name,
                     TextColor3 = Color3.fromRGB(255, 255, 255),
-TextSize = 14, * (ImageLabel.Size.Y.Offset / 500)
+                    TextSize = 14,
                 }, Border)
 
                 function sector.create_line(thickness)
@@ -489,7 +489,7 @@ TextSize = 14, * (ImageLabel.Size.Y.Offset / 500)
                         Name = "LineFrame",
                         BackgroundTransparency = 1,
                         Position = UDim2.new(0, 0, 0, 0),
-                        Size = UDim2.new(0.5, 250, 0, thickness * 3),
+                        Size = UDim2.new(0, 250, 0, thickness * 3),
                     }, Container)
 
                     local Line = library:create("Frame", {
@@ -554,17 +554,17 @@ TextSize = 14, * (ImageLabel.Size.Y.Offset / 500)
                             BackgroundColor3 = Color3.fromRGB(30, 30, 30),
                             BorderColor3 = Color3.fromRGB(0, 0, 0),
                             Position = UDim2.new(0, 9, 0.5, 0),
-                            Size = UDim2.new(0.5, 9, 0, 9),
+                            Size = UDim2.new(0, 9, 0, 9),
                         }, ToggleButton)
 
                         local ToggleText = library:create("TextLabel", {
                             BackgroundTransparency = 1,
                             Position = UDim2.new(0, 27, 0, 5),
-                            Size = UDim2.new(0.5, 200, 0, 9),
+                            Size = UDim2.new(0, 200, 0, 9),
                             Font = Enum.Font.Ubuntu,
                             Text = text,
                             TextColor3 = Color3.fromRGB(150, 150, 150),
-TextSize = 14, * (ImageLabel.Size.Y.Offset / 500)
+                            TextSize = 14,
                             TextXAlignment = Enum.TextXAlignment.Left,
                         }, ToggleButton)
 
@@ -618,11 +618,11 @@ TextSize = 14, * (ImageLabel.Size.Y.Offset / 500)
                                 AnchorPoint = Vector2.new(1, 0),
                                 BackgroundTransparency = 1,
                                 Position = UDim2.new(0, 265, 0, 0),
-                                Size = UDim2.new(0.5, 56, 0, 20),
+                                Size = UDim2.new(0, 56, 0, 20),
                                 Font = Enum.Font.Ubuntu,
                                 Text = "[ NONE ]",
                                 TextColor3 = Color3.fromRGB(150, 150, 150),
-TextSize = 14, * (ImageLabel.Size.Y.Offset / 500)
+                                TextSize = 14,
                                 TextXAlignment = Enum.TextXAlignment.Right,
                             }, ToggleButton)
 
@@ -631,7 +631,7 @@ TextSize = 14, * (ImageLabel.Size.Y.Offset / 500)
                                 BackgroundColor3 = Color3.fromRGB(10, 10, 10),
                                 BorderColor3 = Color3.fromRGB(30, 30, 30),
                                 Position = UDim2.new(1, 5, 0, 3),
-                                Size = UDim2.new(0.5, 55, 0, 75),
+                                Size = UDim2.new(0, 55, 0, 75),
                                 Visible = false,
                                 ZIndex = 2,
                             }, Keybind)
@@ -674,7 +674,7 @@ TextSize = 14, * (ImageLabel.Size.Y.Offset / 500)
                                 Font = Enum.Font.Ubuntu,
                                 Text = "Always",
                                 TextColor3 = Color3.fromRGB(84, 101, 255),
-TextSize = 14, * (ImageLabel.Size.Y.Offset / 500)
+                                TextSize = 14,
                                 ZIndex = 2,
                             }, KeybindFrame)
 
@@ -685,7 +685,7 @@ TextSize = 14, * (ImageLabel.Size.Y.Offset / 500)
                                 Font = Enum.Font.Ubuntu,
                                 Text = "Hold",
                                 TextColor3 = Color3.fromRGB(150, 150, 150),
-TextSize = 14, * (ImageLabel.Size.Y.Offset / 500)
+                                TextSize = 14,
                                 ZIndex = 2,
                             }, KeybindFrame)
 
@@ -696,7 +696,7 @@ TextSize = 14, * (ImageLabel.Size.Y.Offset / 500)
                                 Font = Enum.Font.Ubuntu,
                                 Text = "Toggle",
                                 TextColor3 = Color3.fromRGB(150, 150, 150),
-TextSize = 14, * (ImageLabel.Size.Y.Offset / 500)
+                                TextSize = 14,
                                 ZIndex = 2,
                             }, KeybindFrame)
                             for _,TypeButton in next, KeybindFrame:GetChildren() do
@@ -739,12 +739,12 @@ TextSize = 14, * (ImageLabel.Size.Y.Offset / 500)
 
                                     local new_value = input.KeyCode.Name ~= "Unknown" and input.KeyCode.Name or input.UserInputType.Name
                                     Keybind.Text = "[ "..new_value:upper().." ]"
-									Keybind.Size = UDim2.new(0.5, library:get_text_size(Keybind.Text, 14, Enum.Font.Ubuntu, Vector2.new(700, 20)).X + 3, 0, 20)
+									Keybind.Size = UDim2.new(0, library:get_text_size(Keybind.Text, 14, Enum.Font.Ubuntu, Vector2.new(700, 20)).X + 3, 0, 20)
 									extra_value.Key = new_value
 
 									if new_value == "Backspace" then
 										Keybind.Text = "[ NONE ]"
-										Keybind.Size = UDim2.new(0.5, library:get_text_size(Keybind.Text, 14, Enum.Font.Ubuntu, Vector2.new(700, 20)).X + 3, 0, 20)
+										Keybind.Size = UDim2.new(0, library:get_text_size(Keybind.Text, 14, Enum.Font.Ubuntu, Vector2.new(700, 20)).X + 3, 0, 20)
 										extra_value.Key = nil
 									end
 
@@ -781,7 +781,7 @@ TextSize = 14, * (ImageLabel.Size.Y.Offset / 500)
 									wait()
 									is_binding = true
 									Keybind.Text = "[ ... ]"
-									Keybind.Size = UDim2.new(0.5, library:get_text_size("[ ... ]", 14, Enum.Font.Ubuntu, Vector2.new(700, 20)).X + 3,0, 20)
+									Keybind.Size = UDim2.new(0, library:get_text_size("[ ... ]", 14, Enum.Font.Ubuntu, Vector2.new(700, 20)).X + 3,0, 20)
 								end
 							end)
 
@@ -806,7 +806,7 @@ TextSize = 14, * (ImageLabel.Size.Y.Offset / 500)
 
                                 local key = extra_value.Key ~= nil and extra_value.Key or "NONE"
                                 Keybind.Text = "[ "..key:upper().." ]"
-                                Keybind.Size = UDim2.new(0.5, library:get_text_size(Keybind.Text, 14, Enum.Font.Ubuntu, Vector2.new(700, 20)).X + 3, 0, 20)
+                                Keybind.Size = UDim2.new(0, library:get_text_size(Keybind.Text, 14, Enum.Font.Ubuntu, Vector2.new(700, 20)).X + 3, 0, 20)
     
                                 if cb == nil or not cb then
                                     key_callback(extra_value)
@@ -837,7 +837,7 @@ TextSize = 14, * (ImageLabel.Size.Y.Offset / 500)
                                 BackgroundColor3 = Color3.fromRGB(255, 28, 28),
                                 BorderColor3 = Color3.fromRGB(0, 0, 0),
                                 Position = UDim2.new(0, 265, 0.5, 0),
-                                Size = UDim2.new(0.5, 35, 0, 11),
+                                Size = UDim2.new(0, 35, 0, 11),
                                 AutoButtonColor = false,
                                 Font = Enum.Font.Ubuntu,
                                 Text = "",
@@ -850,7 +850,7 @@ TextSize = 14, * (ImageLabel.Size.Y.Offset / 500)
                                 BackgroundColor3 = Color3.fromRGB(10, 10, 10),
                                 BorderColor3 = Color3.fromRGB(0, 0, 0),
                                 Position = UDim2.new(1, 5, 0, 0),
-                                Size = UDim2.new(0.5, 200, 0, 170),
+                                Size = UDim2.new(0, 200, 0, 170),
                                 Visible = false,
                                 ZIndex = 2,
                             }, ColorButton)
@@ -860,7 +860,7 @@ TextSize = 14, * (ImageLabel.Size.Y.Offset / 500)
                                 BackgroundColor3 = Color3.fromRGB(255, 255, 255),
                                 BorderColor3 = Color3.fromRGB(0, 0, 0),
                                 Position = UDim2.new(0, 40, 0, 10),
-                                Size = UDim2.new(0.5, 150, 0, 150),
+                                Size = UDim2.new(0, 150, 0, 150),
                                 AutoButtonColor = false,
                                 Image = "rbxassetid://4155801252",
                                 ImageColor3 = Color3.fromRGB(255, 0, 4),
@@ -871,7 +871,7 @@ TextSize = 14, * (ImageLabel.Size.Y.Offset / 500)
                                 Name = "ColorPick",
                                 BackgroundColor3 = Color3.fromRGB(255, 255, 255),
                                 BorderColor3 = Color3.fromRGB(0, 0, 0),
-                                Size = UDim2.new(0.5, 1, 0, 1),
+                                Size = UDim2.new(0, 1, 0, 1),
                                 ZIndex = 2,
                             }, ColorPicker)
 
@@ -880,7 +880,7 @@ TextSize = 14, * (ImageLabel.Size.Y.Offset / 500)
                                 BackgroundColor3 = Color3.fromRGB(255, 255, 255),
                                 BorderColor3 = Color3.fromRGB(0, 0, 0),
                                 Position = UDim2.new(0, 10, 0, 10),
-                                Size = UDim2.new(0.5, 20, 0, 150),
+                                Size = UDim2.new(0, 20, 0, 150),
                                 ZIndex = 2,
                                 AutoButtonColor = false,
                                 Text = "",
@@ -937,17 +937,17 @@ TextSize = 14, * (ImageLabel.Size.Y.Offset / 500)
                             local TransparencyColor
                             local TransparencyPick
                             if has_transparency then
-                                ColorFrame.Size = UDim2.new(0.5, 200, 0, 200)
+                                ColorFrame.Size = UDim2.new(0, 200, 0, 200)
 
                                 local TransparencyPicker = library:create("ImageButton", {
                                     Name = "TransparencyPicker",
                                     BackgroundColor3 = Color3.fromRGB(255, 255, 255),
                                     BorderColor3 = Color3.fromRGB(0, 0, 0),
                                     Position = UDim2.new(0, 10, 0, 170),
-                                    Size = UDim2.new(0.5, 180, 0, 20),
+                                    Size = UDim2.new(0, 180, 0, 20),
                                     Image = "rbxassetid://3887014957",
                                     ScaleType = Enum.ScaleType.Tile,
-                                    TileSize = UDim2.new(0.5, 10, 0, 10),
+                                    TileSize = UDim2.new(0, 10, 0, 10),
                                     ZIndex = 2,
                                 }, ColorFrame)
 
@@ -962,7 +962,7 @@ TextSize = 14, * (ImageLabel.Size.Y.Offset / 500)
                                     Name = "TransparencyPick",
                                     BackgroundColor3 = Color3.fromRGB(255, 255, 255),
                                     BorderColor3 = Color3.fromRGB(0, 0, 0),
-                                    Size = UDim2.new(0.5, 1, 1, 0),
+                                    Size = UDim2.new(0, 1, 1, 0),
                                     ZIndex = 2,
                                 }, TransparencyPicker)
 
@@ -1118,7 +1118,7 @@ TextSize = 14, * (ImageLabel.Size.Y.Offset / 500)
                             BackgroundColor3 = Color3.fromRGB(25, 25, 25),
                             BorderColor3 = Color3.fromRGB(0, 0, 0),
                             Position = UDim2.new(0, 9, 0, 20),
-                            Size = UDim2.new(0.5, 260, 0, 20),
+                            Size = UDim2.new(0, 260, 0, 20),
                             AutoButtonColor = false,
                             Text = "",
                         }, Dropdown)
@@ -1127,18 +1127,18 @@ TextSize = 14, * (ImageLabel.Size.Y.Offset / 500)
                             Name = "DropdownButtonText",
                             BackgroundTransparency = 1,
                             Position = UDim2.new(0, 6, 0, 0),
-                            Size = UDim2.new(0.5, 250, 1, 0),
+                            Size = UDim2.new(0, 250, 1, 0),
                             Font = Enum.Font.Ubuntu,
                             Text = value.Dropdown,
                             TextColor3 = Color3.fromRGB(150, 150, 150),
-TextSize = 14, * (ImageLabel.Size.Y.Offset / 500)
+                            TextSize = 14,
                             TextXAlignment = Enum.TextXAlignment.Left,
                         }, DropdownButton)
 
                         local ImageLabel = library:create("ImageLabel", {
                             BackgroundTransparency = 1,
                             Position = UDim2.new(0, 245, 0, 8),
-                            Size = UDim2.new(0.5, 6, 0, 4),
+                            Size = UDim2.new(0, 6, 0, 4),
                             Image = "rbxassetid://6724771531",
                         }, DropdownButton)
 
@@ -1146,11 +1146,11 @@ TextSize = 14, * (ImageLabel.Size.Y.Offset / 500)
                             Name = "DropdownText",
                             BackgroundTransparency = 1,
                             Position = UDim2.new(0, 9, 0, 6),
-                            Size = UDim2.new(0.5, 200, 0, 9),
+                            Size = UDim2.new(0, 200, 0, 9),
                             Font = Enum.Font.Ubuntu,
                             Text = text,
                             TextColor3 = Color3.fromRGB(150, 150, 150),
-TextSize = 14, * (ImageLabel.Size.Y.Offset / 500)
+                            TextSize = 14,
                             TextXAlignment = Enum.TextXAlignment.Left,
                         }, Dropdown)
 
@@ -1160,8 +1160,8 @@ TextSize = 14, * (ImageLabel.Size.Y.Offset / 500)
                             BackgroundColor3 = Color3.fromRGB(25, 25, 25),
                             BorderColor3 = Color3.fromRGB(0, 0, 0),
                             Position = UDim2.new(0, 9, 0, 41),
-                            Size = UDim2.new(0.5, 260, 0, 20),
-                            CanvasSize = UDim2.new(0.5, 0, 0, 0),
+                            Size = UDim2.new(0, 260, 0, 20),
+                            CanvasSize = UDim2.new(0, 0, 0, 0),
                             ScrollBarThickness = 2,
                             TopImage = "rbxasset://textures/ui/Scroll/scroll-middle.png",
                             BottomImage = "rbxasset://textures/ui/Scroll/scroll-middle.png",
@@ -1176,12 +1176,12 @@ TextSize = 14, * (ImageLabel.Size.Y.Offset / 500)
 
                         local options_num = #data.options
                         if options_num >= 4 then
-                            DropdownScroll.Size = UDim2.new(0.5, 260, 0, 80)
+                            DropdownScroll.Size = UDim2.new(0, 260, 0, 80)
                             for i = 1, options_num do
                                 DropdownScroll.CanvasSize = DropdownScroll.CanvasSize + UDim2.new(0, 0, 0, 20)
                             end
                         else
-                            DropdownScroll.Size = UDim2.new(0.5, 260, 0, 20 * options_num)
+                            DropdownScroll.Size = UDim2.new(0, 260, 0, 20 * options_num)
                         end
 
                         local in_drop = false
@@ -1253,11 +1253,11 @@ TextSize = 14, * (ImageLabel.Size.Y.Offset / 500)
                                 Name = "ButtonText",
                                 BackgroundTransparency = 1,
                                 Position = UDim2.new(0, 8, 0, 0),
-                                Size = UDim2.new(0.5, 245, 1, 0),
+                                Size = UDim2.new(0, 245, 1, 0),
                                 Font = Enum.Font.Ubuntu,
                                 Text = v,
                                 TextColor3 = Color3.fromRGB(150, 150, 150),
-TextSize = 14, * (ImageLabel.Size.Y.Offset / 500)
+                                TextSize = 14,
                                 TextXAlignment = Enum.TextXAlignment.Left,
                                 ZIndex = 2,
                             }, Button)
@@ -1266,7 +1266,7 @@ TextSize = 14, * (ImageLabel.Size.Y.Offset / 500)
                                 Name = "Decoration",
                                 BackgroundColor3 = Color3.fromRGB(84, 101, 255),
                                 BorderSizePixel = 0,
-                                Size = UDim2.new(0.5, 1, 1, 0),
+                                Size = UDim2.new(0, 1, 1, 0),
                                 Visible = false,
                                 ZIndex = 2,
                             }, Button)
@@ -1324,7 +1324,7 @@ TextSize = 14, * (ImageLabel.Size.Y.Offset / 500)
                             BackgroundColor3 = Color3.fromRGB(25, 25, 25),
                             BorderColor3 = Color3.fromRGB(0, 0, 0),
                             Position = UDim2.new(0, 9, 0, 20),
-                            Size = UDim2.new(0.5, 260, 0, 20),
+                            Size = UDim2.new(0, 260, 0, 20),
                             AutoButtonColor = false,
                             Text = "",
                         }, Dropdown)
@@ -1333,18 +1333,18 @@ TextSize = 14, * (ImageLabel.Size.Y.Offset / 500)
                             Name = "DropdownButtonText",
                             BackgroundTransparency = 1,
                             Position = UDim2.new(0, 6, 0, 0),
-                            Size = UDim2.new(0.5, 250, 1, 0),
+                            Size = UDim2.new(0, 250, 1, 0),
                             Font = Enum.Font.Ubuntu,
                             Text = value.Dropdown,
                             TextColor3 = Color3.fromRGB(150, 150, 150),
-TextSize = 14, * (ImageLabel.Size.Y.Offset / 500)
+                            TextSize = 14,
                             TextXAlignment = Enum.TextXAlignment.Left,
                         }, DropdownButton)
 
                         local ImageLabel = library:create("ImageLabel", {
                             BackgroundTransparency = 1,
                             Position = UDim2.new(0, 245, 0, 8),
-                            Size = UDim2.new(0.5, 6, 0, 4),
+                            Size = UDim2.new(0, 6, 0, 4),
                             Image = "rbxassetid://6724771531",
                         }, DropdownButton)
 
@@ -1352,11 +1352,11 @@ TextSize = 14, * (ImageLabel.Size.Y.Offset / 500)
                             Name = "DropdownText",
                             BackgroundTransparency = 1,
                             Position = UDim2.new(0, 9, 0, 6),
-                            Size = UDim2.new(0.5, 200, 0, 9),
+                            Size = UDim2.new(0, 200, 0, 9),
                             Font = Enum.Font.Ubuntu,
                             Text = text,
                             TextColor3 = Color3.fromRGB(150, 150, 150),
-TextSize = 14, * (ImageLabel.Size.Y.Offset / 500)
+                            TextSize = 14,
                             TextXAlignment = Enum.TextXAlignment.Left,
                         }, Dropdown)
 
@@ -1366,8 +1366,8 @@ TextSize = 14, * (ImageLabel.Size.Y.Offset / 500)
                             BackgroundColor3 = Color3.fromRGB(25, 25, 25),
                             BorderColor3 = Color3.fromRGB(0, 0, 0),
                             Position = UDim2.new(0, 9, 0, 41),
-                            Size = UDim2.new(0.5, 260, 0, 20),
-                            CanvasSize = UDim2.new(0.5, 0, 0, 0),
+                            Size = UDim2.new(0, 260, 0, 20),
+                            CanvasSize = UDim2.new(0, 0, 0, 0),
                             ScrollBarThickness = 2,
                             TopImage = "rbxasset://textures/ui/Scroll/scroll-middle.png",
                             BottomImage = "rbxasset://textures/ui/Scroll/scroll-middle.png",
@@ -1382,12 +1382,12 @@ TextSize = 14, * (ImageLabel.Size.Y.Offset / 500)
 
                         local options_num = #data.options
                         if options_num >= 4 then
-                            DropdownScroll.Size = UDim2.new(0.5, 260, 0, 80)
+                            DropdownScroll.Size = UDim2.new(0, 260, 0, 80)
                             for i = 1, options_num do
                                 DropdownScroll.CanvasSize = DropdownScroll.CanvasSize + UDim2.new(0, 0, 0, 20)
                             end
                         else
-                            DropdownScroll.Size = UDim2.new(0.5, 260, 0, 20 * options_num)
+                            DropdownScroll.Size = UDim2.new(0, 260, 0, 20 * options_num)
                         end
 
                         local in_drop = false
@@ -1502,11 +1502,11 @@ TextSize = 14, * (ImageLabel.Size.Y.Offset / 500)
                                 Name = "ButtonText",
                                 BackgroundTransparency = 1,
                                 Position = UDim2.new(0, 8, 0, 0),
-                                Size = UDim2.new(0.5, 245, 1, 0),
+                                Size = UDim2.new(0, 245, 1, 0),
                                 Font = Enum.Font.Ubuntu,
                                 Text = v,
                                 TextColor3 = Color3.fromRGB(150, 150, 150),
-TextSize = 14, * (ImageLabel.Size.Y.Offset / 500)
+                                TextSize = 14,
                                 TextXAlignment = Enum.TextXAlignment.Left,
                                 ZIndex = 2,
                             }, Button)
@@ -1515,7 +1515,7 @@ TextSize = 14, * (ImageLabel.Size.Y.Offset / 500)
                                 Name = "Decoration",
                                 BackgroundColor3 = Color3.fromRGB(84, 101, 255),
                                 BorderSizePixel = 0,
-                                Size = UDim2.new(0.5, 1, 1, 0),
+                                Size = UDim2.new(0, 1, 1, 0),
                                 Visible = false,
                                 ZIndex = 2,
                             }, Button)
@@ -1570,12 +1570,12 @@ TextSize = 14, * (ImageLabel.Size.Y.Offset / 500)
                             BackgroundColor3 = Color3.fromRGB(25, 25, 25),
                             BorderColor3 = Color3.fromRGB(0, 0, 0),
                             Position = UDim2.new(0.5, 0, 0.5, 0),
-                            Size = UDim2.new(0.5, 215, 0, 20),
+                            Size = UDim2.new(0, 215, 0, 20),
                             AutoButtonColor = false,
                             Font = Enum.Font.Ubuntu,
                             Text = text,
                             TextColor3 = Color3.fromRGB(150, 150, 150),
-TextSize = 14, * (ImageLabel.Size.Y.Offset / 500)
+                            TextSize = 14,
                         }, ButtonFrame)
 
                         Button.MouseEnter:Connect(function()
@@ -1619,11 +1619,11 @@ TextSize = 14, * (ImageLabel.Size.Y.Offset / 500)
                             BackgroundColor3 = Color3.fromRGB(25, 25, 25),
                             BorderColor3 = Color3.fromRGB(0, 0, 0),
                             Position = UDim2.new(0.5, 0, 0.5, 0),
-                            Size = UDim2.new(0.5, 215, 0, 20),
+                            Size = UDim2.new(0, 215, 0, 20),
                             Font = Enum.Font.Ubuntu,
                             Text = text,
                             TextColor3 = Color3.fromRGB(150, 150, 150),
-TextSize = 14, * (ImageLabel.Size.Y.Offset / 500)
+                            TextSize = 14,
                             PlaceholderText = text,
                             ClearTextOnFocus = false,
                         }, ButtonFrame)
@@ -1696,9 +1696,9 @@ TextSize = 14, * (ImageLabel.Size.Y.Offset / 500)
                             BackgroundColor3 = Color3.fromRGB(25, 25, 25),
                             BorderColor3 = Color3.fromRGB(0, 0, 0),
                             Position = UDim2.new(0.5, 0, 0, 5),
-                            Size = UDim2.new(0.5, 215, 0, scrollsize * 20),
+                            Size = UDim2.new(0, 215, 0, scrollsize * 20),
                             BottomImage = "rbxasset://textures/ui/Scroll/scroll-middle.png",
-                            CanvasSize = UDim2.new(0.5, 0, 0, #data.options * 20),
+                            CanvasSize = UDim2.new(0, 0, 0, #data.options * 20),
                             ScrollBarThickness = 2,
                             TopImage = "rbxasset://textures/ui/Scroll/scroll-middle.png",
                             AnchorPoint = Vector2.new(0.5, 0),
@@ -1729,7 +1729,7 @@ TextSize = 14, * (ImageLabel.Size.Y.Offset / 500)
                                 Font = Enum.Font.SourceSans,
                                 Text = "",
                                 TextColor3 = Color3.fromRGB(0, 0, 0),
-TextSize = 14, * (ImageLabel.Size.Y.Offset / 500)
+                                TextSize = 14,
                             }, ScrollFrame)
 
                             local ButtonText = library:create("TextLabel", {
@@ -1737,11 +1737,11 @@ TextSize = 14, * (ImageLabel.Size.Y.Offset / 500)
                                 BackgroundColor3 = Color3.fromRGB(255, 255, 255),
                                 BackgroundTransparency = 1,
                                 Position = UDim2.new(0, 7, 0, 0),
-                                Size = UDim2.new(0.5, 210, 1, 0),
+                                Size = UDim2.new(0, 210, 1, 0),
                                 Font = Enum.Font.Ubuntu,
                                 Text = v,
                                 TextColor3 = Color3.fromRGB(150, 150, 150),
-TextSize = 14, * (ImageLabel.Size.Y.Offset / 500)
+                                TextSize = 14,
                                 TextXAlignment = Enum.TextXAlignment.Left,
                             }, Button)
 
@@ -1750,7 +1750,7 @@ TextSize = 14, * (ImageLabel.Size.Y.Offset / 500)
                                 Parent = Button,
                                 BackgroundColor3 = Color3.fromRGB(84, 101, 255),
                                 BorderSizePixel = 0,
-                                Size = UDim2.new(0.5, 1, 1, 0),
+                                Size = UDim2.new(0, 1, 1, 0),
                                 Visible = false,
                             }, Button)
 
@@ -1807,7 +1807,7 @@ TextSize = 14, * (ImageLabel.Size.Y.Offset / 500)
                                 Font = Enum.Font.SourceSans,
                                 Text = "",
                                 TextColor3 = Color3.fromRGB(0, 0, 0),
-TextSize = 14, * (ImageLabel.Size.Y.Offset / 500)
+                                TextSize = 14,
                             }, ScrollFrame)
 
                             local ButtonText = library:create("TextLabel", {
@@ -1815,11 +1815,11 @@ TextSize = 14, * (ImageLabel.Size.Y.Offset / 500)
                                 BackgroundColor3 = Color3.fromRGB(255, 255, 255),
                                 BackgroundTransparency = 1,
                                 Position = UDim2.new(0, 7, 0, 0),
-                                Size = UDim2.new(0.5, 210, 1, 0),
+                                Size = UDim2.new(0, 210, 1, 0),
                                 Font = Enum.Font.Ubuntu,
                                 Text = v,
                                 TextColor3 = Color3.fromRGB(150, 150, 150),
-TextSize = 14, * (ImageLabel.Size.Y.Offset / 500)
+                                TextSize = 14,
                                 TextXAlignment = Enum.TextXAlignment.Left,
                             }, Button)
 
@@ -1828,7 +1828,7 @@ TextSize = 14, * (ImageLabel.Size.Y.Offset / 500)
                                 Parent = Button,
                                 BackgroundColor3 = Color3.fromRGB(84, 101, 255),
                                 BorderSizePixel = 0,
-                                Size = UDim2.new(0.5, 1, 1, 0),
+                                Size = UDim2.new(0, 1, 1, 0),
                                 Visible = false,
                             }, Button)
                             
@@ -1915,11 +1915,11 @@ TextSize = 14, * (ImageLabel.Size.Y.Offset / 500)
                             Name = "SliderText",
                             BackgroundTransparency = 1,
                             Position = UDim2.new(0, 9, 0, 6),
-                            Size = UDim2.new(0.5, 200, 0, 9),
+                            Size = UDim2.new(0, 200, 0, 9),
                             Font = Enum.Font.Ubuntu,
                             Text = text,
                             TextColor3 = Color3.fromRGB(150, 150, 150),
-TextSize = 14, * (ImageLabel.Size.Y.Offset / 500)
+                            TextSize = 14,
                             TextXAlignment = Enum.TextXAlignment.Left,
                         }, Slider)
 
@@ -1928,7 +1928,7 @@ TextSize = 14, * (ImageLabel.Size.Y.Offset / 500)
                             BackgroundColor3 = Color3.fromRGB(25, 25, 25),
                             BorderColor3 = Color3.fromRGB(0, 0, 0),
                             Position = UDim2.new(0, 9, 0, 20),
-                            Size = UDim2.new(0.5, 260, 0, 10),
+                            Size = UDim2.new(0, 260, 0, 10),
                             AutoButtonColor = false,
                             Font = Enum.Font.SourceSans,
                             Text = "",
@@ -1938,7 +1938,7 @@ TextSize = 14, * (ImageLabel.Size.Y.Offset / 500)
                             Name = "SliderFrame",
                             BackgroundColor3 = Color3.fromRGB(255, 255, 255),
                             BorderSizePixel = 0,
-                            Size = UDim2.new(0.5, 100, 1, 0),
+                            Size = UDim2.new(0, 100, 1, 0),
                         }, SliderButton)
 
                         local UIGradient = library:create("UIGradient", {
@@ -1950,11 +1950,11 @@ TextSize = 14, * (ImageLabel.Size.Y.Offset / 500)
                             Name = "SliderValue",
                             BackgroundTransparency = 1,
                             Position = UDim2.new(0, 69, 0, 6),
-                            Size = UDim2.new(0.5, 200, 0, 9),
+                            Size = UDim2.new(0, 200, 0, 9),
                             Font = Enum.Font.Ubuntu,
                             Text = value.Slider,
                             TextColor3 = Color3.fromRGB(150, 150, 150),
-TextSize = 14, * (ImageLabel.Size.Y.Offset / 500)
+                            TextSize = 14,
                             TextXAlignment = Enum.TextXAlignment.Right,
                         }, Slider)
 
@@ -1975,7 +1975,7 @@ TextSize = 14, * (ImageLabel.Size.Y.Offset / 500)
                             mouse_in = false
                         end)
                         SliderButton.MouseButton1Down:Connect(function()
-                            SliderFrame.Size = UDim2.new(0.5, math.clamp(mouse.X - SliderFrame.AbsolutePosition.X, 0, 260), 1, 0)
+                            SliderFrame.Size = UDim2.new(0, math.clamp(mouse.X - SliderFrame.AbsolutePosition.X, 0, 260), 1, 0)
                         
                             local val = math.floor((((max - min) / 260) * SliderFrame.AbsoluteSize.X) + min)
                             if val ~= value.Slider then
@@ -1987,7 +1987,7 @@ TextSize = 14, * (ImageLabel.Size.Y.Offset / 500)
                             is_sliding = true
 
                             move_connection = mouse.Move:Connect(function()
-                                SliderFrame.Size = UDim2.new(0.5, math.clamp(mouse.X - SliderFrame.AbsolutePosition.X, 0, 260), 1, 0)
+                                SliderFrame.Size = UDim2.new(0, math.clamp(mouse.X - SliderFrame.AbsolutePosition.X, 0, 260), 1, 0)
                         
                                 local val = math.floor((((max - min) / 260) * SliderFrame.AbsoluteSize.X) + min)
                                 if val ~= value.Slider then
@@ -1998,7 +1998,7 @@ TextSize = 14, * (ImageLabel.Size.Y.Offset / 500)
                             end)
                             release_connection = uis.InputEnded:Connect(function(Mouse)
                                 if Mouse.UserInputType == Enum.UserInputType.MouseButton1 then
-                                    SliderFrame.Size = UDim2.new(0.5, math.clamp(mouse.X - SliderFrame.AbsolutePosition.X, 0, 260), 1, 0)
+                                    SliderFrame.Size = UDim2.new(0, math.clamp(mouse.X - SliderFrame.AbsolutePosition.X, 0, 260), 1, 0)
                         
                                     local val = math.floor((((max - min) / 260) * SliderFrame.AbsoluteSize.X) + min)
                                     if val ~= value.Slider then
