@@ -325,8 +325,8 @@ function initLibrary()
     function library:Load(opts)
         local options = utility.table(opts)
         local name = options.name or "Epic UI Library"
-        local sizeX = options.sizeX or 466
-        local sizeY = options.sizeY or 350
+        local sizeX = options.sizeX or 300
+        local sizeY = options.sizeY or 200
         local color = options.color or Color3.fromRGB(255, 255, 255)
         local dragSpeed = options.dragSpeed or 0
 
