@@ -194,6 +194,35 @@ inputService.InputBegan:Connect(function(input)
     end
 end)
 
+-- Toggle button properties
+local toggleButton = utility.create("TextButton", {
+    Size = UDim2.new(0, 60, 0, 30), -- Small button
+    Position = UDim2.new(0, 10, 0, 10), -- Initial position
+    BackgroundColor3 = Color3.fromRGB(50, 50, 50), -- Grey color
+    BackgroundTransparency = 0.5, -- Semi-transparent
+    Text = "Open",
+    TextColor3 = Color3.fromRGB(255, 255, 255),
+    Font = Enum.Font.GothamBold,
+    TextSize = 14,
+    Parent = coreGui -- Attach to CoreGui so it's always visible
+})
+
+-- Make the button draggable
+utility.drag(toggleButton, 0.1)
+
+-- Toggle GUI visibility when clicked
+toggleButton.MouseButton1Click:Connect(function()
+    _G.GuiVisible = not _G.GuiVisible
+    gui.Enabled = _G.GuiVisible
+
+    -- Change button text based on state
+    if _G.GuiVisible then
+        toggleButton.Text = "Close"
+    else
+        toggleButton.Text = "Open"
+    end
+end)
+
     inputService.InputBegan:Connect(function(input)
         if input.KeyCode == library.keybind then
             library.toggled = not library.toggled
