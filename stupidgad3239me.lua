@@ -180,6 +180,19 @@ end
 
     local gui = utility.create("ScreenGui")
 
+    _G.GuiVisible = true -- Default state
+
+function ToggleGUI()
+    _G.GuiVisible = not _G.GuiVisible
+    gui.Enabled = _G.GuiVisible
+end
+
+-- Example: Bind to a key (e.g., F2) to toggle visibility
+inputService.InputBegan:Connect(function(input)
+    if input.KeyCode == Enum.KeyCode.F2 then
+        ToggleGUI()
+    end
+end)
 
     inputService.InputBegan:Connect(function(input)
         if input.KeyCode == library.keybind then
