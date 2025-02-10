@@ -88,31 +88,35 @@ function initLibrary()
 
 
     function utility.drag(obj, dragSpeed)
-        local start, objPosition, dragging
+    local start, objPosition, dragging
 
-
-        obj.InputBegan:Connect(function(input)
-            if input.UserInputType == Enum.UserInputType.MouseButton1 then
-                dragging = true
-                start = input.Position
-                objPosition = obj.Position
-            end
-        end)
-
-
-        obj.InputEnded:Connect(function(input )
-            if input.UserInputType == Enum.UserInputType.MouseButton1 then 
-                dragging = false
-            end
-        end)
-
-
-        inputService.InputChanged:Connect(function(input)
-            if input.UserInputType == Enum.UserInputType.MouseMovement and dragging then   
-                utility.tween(obj, {dragSpeed}, {Position = UDim2.new(objPosition.X.Scale, objPosition.X.Offset + (input.Position - start).X, objPosition.Y.Scale, objPosition.Y.Offset + (input.Position - start).Y)})
-            end
-        end)
+    local function updatePosition(input)
+        if dragging then
+            local delta = input.Position - start
+            utility.tween(obj, {dragSpeed}, {Position = UDim2.new(objPosition.X.Scale, objPosition.X.Offset + delta.X, objPosition.Y.Scale, objPosition.Y.Offset + delta.Y)})
+        end
     end
+
+    obj.InputBegan:Connect(function(input)
+        if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
+            dragging = true
+            start = input.Position
+            objPosition = obj.Position
+        end
+    end)
+
+    obj.InputChanged:Connect(function(input)
+        if input.UserInputType == Enum.UserInputType.MouseMovement or input.UserInputType == Enum.UserInputType.Touch then
+            updatePosition(input)
+        end
+    end)
+
+    obj.InputEnded:Connect(function(input)
+        if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
+            dragging = false
+        end
+    end)
+end
 
 
     function utility.get_center(sizeX, sizeY)
