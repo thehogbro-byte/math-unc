@@ -149,14 +149,20 @@ local function updateEsp()
                     local boxSize = Vector2.new(math.floor(charSize * 1.8), math.floor(charSize * 1.9))
                     local boxPosition = Vector2.new(math.floor(hrp2D.X - charSize * 1.8 / 2), math.floor(hrp2D.Y - charSize * 1.6 / 2))
 
-                    if ESP_SETTINGS.ShowName and ESP_SETTINGS.Enabled then
-                        esp.name.Visible = true
-                        esp.name.Text = string.lower(player.Name)
-                        esp.name.Position = Vector2.new(boxSize.X / 2 + boxPosition.X, boxPosition.Y - 16)
-                        esp.name.Color = ESP_SETTINGS.NameColor
-                    else
-                        esp.name.Visible = false
-                    end
+                  if ESP_SETTINGS.ShowName and ESP_SETTINGS.Enabled then
+    esp.name.Visible = true
+    esp.name.Text = string.lower(player.Name)
+    esp.name.Position = Vector2.new(boxSize.X / 2 + boxPosition.X, boxPosition.Y - 16)
+    
+    -- Set name color based on team color
+    if player.Team then
+        esp.name.Color = player.TeamColor.Color -- Use Roblox's TeamColor system
+    else
+        esp.name.Color = Color3.new(1, 1, 1) -- Default to white if no team
+    end
+else
+    esp.name.Visible = false
+end
 
                     if ESP_SETTINGS.ShowBox and ESP_SETTINGS.Enabled then
                         if ESP_SETTINGS.BoxType == "2D" then
