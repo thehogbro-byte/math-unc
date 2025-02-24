@@ -155,11 +155,12 @@ local function updateEsp()
     esp.name.Position = Vector2.new(boxSize.X / 2 + boxPosition.X, boxPosition.Y - 16)
     
     -- Set name color based on team color
-    if player.Team then
-        esp.name.Color = player.TeamColor.Color -- Use Roblox's TeamColor system
-    else
-        esp.name.Color = Color3.new(1, 1, 1) -- Default to white if no team
-    end
+   -- Set name color based on team color toggle
+if _G.ESP_UseTeamColors and player.Team then
+    esp.name.Color = player.TeamColor.Color -- Use Roblox's TeamColor system
+else
+    esp.name.Color = Color3.new(1, 1, 1) -- Default to white if no team or if the toggle is off
+end
 else
     esp.name.Visible = false
 end
@@ -170,7 +171,12 @@ end
                             esp.boxOutline.Position = boxPosition
                             esp.box.Size = boxSize
                             esp.box.Position = boxPosition
-                            esp.box.Color = ESP_SETTINGS.BoxColor
+                            if _G.UseTeamColors and player.Team then
+    esp.box.Color = player.TeamColor.Color
+else
+    esp.box.Color = ESP_SETTINGS.BoxColor
+end
+
                             esp.box.Visible = true
                             esp.boxOutline.Visible = true
                             for _, line in ipairs(esp.boxLines) do
@@ -344,6 +350,11 @@ end
                             esp.tracer.Visible = false
                         else
                             esp.tracer.Visible = true
+                            if _G.UseTeamColors and player.Team then
+    esp.tracer.Color = player.TeamColor.Color
+else
+    esp.tracer.Color = ESP_SETTINGS.TracerColor
+end
                             esp.tracer.From = Vector2.new(camera.ViewportSize.X / 2, tracerY)
                             esp.tracer.To = Vector2.new(hrp2D.X, hrp2D.Y)            
                         end
@@ -413,3 +424,5 @@ end)
 
 RunService.RenderStepped:Connect(updateEsp)
 return ESP_SETTINGS
+
+
