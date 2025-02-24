@@ -25,10 +25,10 @@ local bones = {
 
 --// Settings
 local ESP_SETTINGS = {
-    BoxOutlineColor = Color3.new(255, 255, 255),
+    BoxOutlineColor = Color3.new(0, 0, 0),
     BoxColor = Color3.new(1, 1, 1),
     NameColor = Color3.new(1, 1, 1),
-    HealthOutlineColor = Color3.new(0, 128, 0),
+    HealthOutlineColor = Color3.new(0, 0, 0),
     HealthHighColor = Color3.new(0, 1, 0),
     HealthLowColor = Color3.new(1, 0, 0),
     CharSize = Vector2.new(4, 6),
