@@ -426,3 +426,9 @@ RunService.RenderStepped:Connect(updateEsp)
 return ESP_SETTINGS
 
 
+function ToggleTeamColors()
+    _G.UseTeamColors = not _G.UseTeamColors
+    for _, player in pairs(game:GetService("Players"):GetPlayers()) do
+        updateEsp(player) -- Force ESP to update colors
+    end
+end
