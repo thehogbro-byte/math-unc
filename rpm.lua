@@ -6627,7 +6627,43 @@ return function(Iris)
         end
     end
 end
+end
+
+Iris.CollapsingHeader({"Window Options"})
+                Iris.Table({3, false, false, false})
+                    Iris.NextColumn()
+                    Iris.Checkbox({"NoTitleBar"}, {isChecked = NoTitleBar})
+                Iris.End()
+            Iris.End()
+
+            widgetEventInteractivity()
+
+            widgetStateInteractivity()
+
+            dynamicStyle()
+
+            Iris.Separator()
+
+            Iris.CollapsingHeader({"Widgets"})
+                for _, name in next, widgetDemosOrder do
+                    widgetDemos[name]()
+                end
+            Iris.End()
+
+            tablesDemo()
+
+			layoutDemo()
+        Iris.End()
+
+        if showStyleEditor.value then
+            styleEditor()
+        end
+    end
+end
 end)
+
+
+
 __bundle_register("config", function(require, _LOADED, __bundle_register, __bundle_modules)
 local TemplateConfig = {
     colorDark = { -- Dear, ImGui default dark
