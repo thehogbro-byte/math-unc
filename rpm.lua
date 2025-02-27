@@ -6276,7 +6276,6 @@ end)
 __bundle_register("demoWindow", function(require, _LOADED, __bundle_register, __bundle_modules)
 return function(Iris)
     local showMainWindow = Iris.State(true)
-    local showRecursiveWindow = Iris.State(false)
     local showRuntimeInfo = Iris.State(false)
     local showStyleEditor = Iris.State(false)
     local showWindowlessDemo = Iris.State(false)
@@ -6546,23 +6545,6 @@ return function(Iris)
         end
     }
     local widgetDemosOrder = {"Basic", "Tree", "CollapsingHeader", "Group", "Indent", "Input", "InputText", "Tooltip", "Selectable", "Combo"}
-
-    local function recursiveTree()
-        local theTree = Iris.Tree({"Recursive Tree"})
-        if theTree.state.isUncollapsed.value then
-            recursiveTree()
-        end
-        Iris.End()
-    end
-
-    local function recursiveWindow(parentCheckboxState)
-        Iris.Window({"Recursive Window"}, {size = Iris.State(Vector2.new(150, 100)), isOpened = parentCheckboxState})
-            local theCheckbox = Iris.Checkbox({"Recurse Again"})
-        Iris.End()
-        if theCheckbox.isChecked.value then
-            recursiveWindow(theCheckbox.isChecked)
-        end
-    end
 
     -- shows list of runtime widgets and states, including IDs. shows other info about runtime and can show widgets/state info in depth.
     local function runtimeInfo()
@@ -7118,7 +7100,6 @@ return function(Iris)
 
             Iris.Table({3, false, false, false})
                 Iris.NextColumn()
-                Iris.Checkbox({"Recursive Window"}, {isChecked = showRecursiveWindow})
                 Iris.NextColumn()
                 Iris.Checkbox({"Runtime Info"}, {isChecked = showRuntimeInfo})
                 Iris.NextColumn()
@@ -7154,10 +7135,6 @@ return function(Iris)
 
             widgetStateInteractivity()
 
-			Iris.CollapsingHeader({"Recursive Tree"})
-            	recursiveTree()
-			Iris.End()
-
             dynamicStyle()
 
             Iris.Separator()
@@ -7173,9 +7150,6 @@ return function(Iris)
 			layoutDemo()
         Iris.End()
 
-        if showRecursiveWindow.value then
-            recursiveWindow(showRecursiveWindow)
-        end
         if showRuntimeInfo.value then
             runtimeInfo()
         end
