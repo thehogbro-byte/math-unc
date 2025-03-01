@@ -32,7 +32,7 @@ local ESP_SETTINGS = {
     HealthHighColor = Color3.new(0, 1, 0),
     HealthLowColor = Color3.new(1, 0, 0),
     CharSize = Vector2.new(4, 6),
-    Teamcheck = false,
+    Teamcheck = true,
     WallCheck = false,
     Enabled = false,
     ShowBox = false,
@@ -80,7 +80,7 @@ local function createEsp(player)
             Size = 13
         }),
         healthOutline = create("Line", {
-            Thickness = 1,
+            Thickness = 0.5,
             Color = ESP_SETTINGS.HealthOutlineColor
         }),
         health = create("Line", {
