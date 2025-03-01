@@ -290,6 +290,11 @@ end
                         local distance = (camera.CFrame.p - rootPart.Position).Magnitude
                         esp.distance.Text = string.format("%.1f studs", distance)
                         esp.distance.Position = Vector2.new(boxPosition.X + boxSize.X / 2, boxPosition.Y + boxSize.Y + 5)
+                        if player.Team then
+    esp.distance.Color = player.TeamColor.Color -- Match distance text color to team color
+else
+    esp.distance.Color = ESP_SETTINGS.DistanceColor -- Default color if no team
+end
                         esp.distance.Visible = true
                     else
                         esp.distance.Visible = false
