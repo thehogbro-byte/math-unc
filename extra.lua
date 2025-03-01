@@ -170,7 +170,11 @@ end
                             esp.boxOutline.Position = boxPosition
                             esp.box.Size = boxSize
                             esp.box.Position = boxPosition
-                            esp.box.Color = ESP_SETTINGS.BoxColor
+if player.Team then
+    esp.box.Color = player.TeamColor.Color -- Set box color based on the player's team
+else
+    esp.box.Color = ESP_SETTINGS.BoxColor -- Default color if no team
+end
                             esp.box.Visible = true
                             esp.boxOutline.Visible = true
                             for _, line in ipairs(esp.boxLines) do
