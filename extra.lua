@@ -65,7 +65,7 @@ local function createEsp(player)
         }),
         boxOutline = create("Square", {
             Color = ESP_SETTINGS.BoxOutlineColor,
-            Thickness = 3,
+            Thickness = 1,
             Filled = false
         }),
         box = create("Square", {
