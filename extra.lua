@@ -43,7 +43,7 @@ local ESP_SETTINGS = {
     ShowSkeletons = false,
     ShowTracer = false,
     TracerColor = Color3.new(1, 1, 1), 
-    TracerThickness = 2,
+    TracerThickness = 1,
     SkeletonsColor = Color3.new(1, 1, 1),
     TracerPosition = "Bottom",
 }
@@ -80,7 +80,7 @@ local function createEsp(player)
             Size = 13
         }),
         healthOutline = create("Line", {
-            Thickness = 3,
+            Thickness = 1,
             Color = ESP_SETTINGS.HealthOutlineColor
         }),
         health = create("Line", {
